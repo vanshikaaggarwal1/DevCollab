@@ -1,0 +1,308 @@
+/* =====================================================
+                    PROJECTS PAGE
+===================================================== */
+
+.projects-page{
+    padding:var(--space-7);
+    background:var(--bg-canvas);
+    min-height:100vh;
+    flex: 1;
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+/* =====================================================
+                    HEADER
+===================================================== */
+
+.projects-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:32px;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.projects-header h1{
+    font-size:2rem;
+    color:var(--text-primary);
+    margin-bottom:6px;
+}
+
+.projects-header p{
+    color:var(--text-secondary);
+    font-size:.95rem;
+}
+
+.new-project-btn{
+    border:none;
+    outline:none;
+    cursor:pointer;
+    padding:12px 22px;
+    border-radius:var(--radius-md);
+    background:var(--color-bronze);
+    color:#fff;
+    font-size:var(--text-sm);
+    font-weight:600;
+    transition:var(--transition-normal);
+    box-shadow:var(--shadow-sm);
+}
+
+.new-project-btn:hover{
+    transform:translateY(-1px);
+    background:var(--color-primary-hover);
+    box-shadow:var(--shadow-md);
+}
+
+/* =====================================================
+                    STATS
+===================================================== */
+
+.project-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-bottom:35px;
+}
+
+.stat-card{
+    background:var(--bg-card);
+    border:1px solid var(--border-default);
+    border-radius:18px;
+    padding:25px;
+    box-shadow:var(--shadow-sm);
+    transition:.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow-lg);
+}
+
+.stat-card h2{
+    color:var(--color-primary);
+    font-size:2rem;
+    margin-bottom:8px;
+}
+
+.stat-card span{
+    color:var(--text-secondary);
+}
+
+/* =====================================================
+                    TOOLBAR
+===================================================== */
+
+.project-toolbar{
+    margin-bottom:35px;
+}
+
+.project-toolbar input{
+    width:100%;
+    max-width:420px;
+    padding:15px 18px;
+    border-radius:12px;
+    border:1px solid var(--border-default);
+    background:var(--bg-card);
+    color:var(--text-primary);
+    outline:none;
+    transition:.3s;
+    font-size:.95rem;
+}
+
+.project-toolbar input:focus{
+    border-color:var(--color-primary);
+    box-shadow:0 0 0 4px var(--color-primary-bg);
+}
+
+/* =====================================================
+                    GRID
+===================================================== */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(270px,1fr));
+    gap:28px;
+}
+
+/* =====================================================
+                    CARD
+===================================================== */
+
+.project-card{
+    background:var(--bg-card);
+    border:1px solid var(--border-default);
+    border-radius:20px;
+    padding:24px;
+    box-shadow:var(--shadow-sm);
+    transition:.35s;
+    display:flex;
+    flex-direction:column;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-xl);
+}
+
+.project-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.project-top h3{
+    color:var(--text-primary);
+    font-size:1.2rem;
+}
+
+.project-card p{
+    color:var(--text-secondary);
+    line-height:1.6;
+    margin-bottom:22px;
+}
+
+/* =====================================================
+                    STATUS
+===================================================== */
+
+.status{
+    padding:6px 12px;
+    border-radius:50px;
+    font-size:.75rem;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.status.Active{
+    background:#DCFCE7;
+    color:#15803D;
+}
+
+.status.In-Progress{
+    background:var(--color-primary-bg);
+    color:var(--color-primary-text);
+}
+
+.status.Completed{
+    background:#F3F4F6;
+    color:#374151;
+}
+
+/* =====================================================
+                  PROGRESS
+===================================================== */
+
+.progress-box{
+    margin-bottom:22px;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+    color:var(--text-secondary);
+    font-size:.85rem;
+}
+
+.progress-bar{
+    height:10px;
+    background:#EDF2F7;
+    border-radius:50px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    background:var(--color-bronze);
+    border-radius:50px;
+}
+
+/* =====================================================
+                FOOTER
+===================================================== */
+
+.project-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:var(--text-secondary);
+    margin-bottom:24px;
+    font-size:.85rem;
+}
+
+/* =====================================================
+                BUTTON
+===================================================== */
+
+.view-btn{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:var(--radius-md);
+    background:var(--color-bronze);
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    transition:var(--transition-normal);
+    margin-top:auto;
+}
+
+.view-btn:hover{
+    transform:translateY(-1px);
+    background:var(--color-primary-hover);
+    box-shadow:var(--shadow-md);
+}
+
+/* =====================================================
+                RESPONSIVE
+===================================================== */
+
+@media(max-width:992px){
+
+.project-stats{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.projects-page{
+    padding:20px;
+}
+
+.projects-header{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.new-project-btn{
+    width:100%;
+}
+
+.projects-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:576px){
+
+.project-stats{
+    grid-template-columns:1fr;
+}
+
+.project-footer{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.projects-header h1{
+    font-size:1.6rem;
+}
+
+}
