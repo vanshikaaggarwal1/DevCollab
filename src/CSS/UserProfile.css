@@ -1,47 +1,34 @@
 /* ===========================
-   FONTS
-   Source Serif 4 gives the name real editorial weight;
-   Inter carries the UI. Swap the @import for self-hosted
-   fonts in production if you prefer not to call Google Fonts.
-=========================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap');
-
-/* ===========================
-   DESIGN TOKENS
+   USER PROFILE (DevCollab Social Style)
 =========================== */
 
 :root {
-    /* Ink & surface */
-    --navy-950: #080d18;
-    --navy-900: #10182a;
-    --navy-800: #1c2b4a;
-    --navy-700: #2b3d63;
+    --navy-950: #18181B;
+    --navy-900: #21372E;
+    --navy-800: #2D4A3E;
+    --navy-700: #3F5E50;
 
-    --slate-600: #4b5875;
-    --slate-500: #6b7280;
-    --slate-400: #9aa4bd;
+    --slate-600: #52525B;
+    --slate-500: #71717A;
+    --slate-400: #A1A1AA;
 
-    --border: #e2e5eb;
-    --border-light: #eceef2;
+    --border: #E2E0D8;
+    --border-light: #EBE9E3;
 
-    --bg: #f4f5f7;
+    --bg: #F5F4F0;
     --surface: #ffffff;
 
-    /* Bronze accent — used sparingly: focus rings, one highlight,
-       hover states. It is a seasoning, not a base color. */
-    --accent-500: #b8944f;
-    --accent-600: #9c7a3d;
-    --accent-tint: #f7f0e3;
+    --accent-500: #C86D51;
+    --accent-600: #B55C41;
+    --accent-tint: #FDF3F0;
 
-    /* Elevation */
-    --shadow-sm: 0 1px 2px rgba(15, 23, 42, .04);
-    --shadow-md: 0 4px 16px rgba(15, 23, 42, .08);
-    --shadow-lg: 0 12px 32px rgba(15, 23, 42, .10);
+    --shadow-sm: 0 1px 2px rgba(24, 24, 27, .04);
+    --shadow-md: 0 4px 16px rgba(24, 24, 27, .06);
+    --shadow-lg: 0 12px 32px rgba(24, 24, 27, .08);
 
     --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 14px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
 
     --ease: cubic-bezier(.2, .7, .3, 1);
 }
@@ -53,9 +40,9 @@
 .userprofile-page {
     background: var(--bg);
     min-height: 100vh;
-    padding-bottom: 48px;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    -webkit-font-smoothing: antialiased;
+    padding: 24px 32px;
+    flex: 1;
+    max-width: 1400px;
 }
 
 /* ===========================
@@ -64,11 +51,11 @@
 
 .userprofile-cover {
     width: 100%;
-    height: 216px;
+    height: 180px;
     position: relative;
     background:
         radial-gradient(circle at 1px 1px, rgba(255, 255, 255, .06) 1px, transparent 0) 0 0 / 22px 22px,
-        linear-gradient(125deg, var(--navy-950) 0%, var(--navy-900) 45%, var(--navy-800) 100%);
+        linear-gradient(125deg, #18181B 0%, #21372E 50%, #2D4A3E 100%);
     overflow: hidden;
 }
 
@@ -76,7 +63,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(8, 13, 24, 0) 0%, rgba(8, 13, 24, .55) 100%);
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0) 0%, rgba(24, 24, 27, .45) 100%);
 }
 
 /* ===========================
@@ -86,15 +73,15 @@
 .userprofile-header {
     width: 88%;
     max-width: 1100px;
-    margin: -64px auto 28px;
+    margin: -50px auto 24px;
     background: var(--surface);
     border-radius: var(--radius-lg);
-    padding: 28px 32px;
+    padding: 24px 28px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 25px;
+    gap: 20px;
 
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border-light);
@@ -105,8 +92,8 @@
 .userprofile-picture-wrap {
     position: relative;
     flex-shrink: 0;
-    width: 116px;
-    height: 116px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     padding: 3px;
     background: linear-gradient(135deg, var(--accent-500), var(--navy-800));
@@ -121,11 +108,9 @@
     display: block;
 }
 
-/* Fallback: if markup only has an <img class="profile-picture">
-   with no wrapper, it still looks intentional on its own. */
 .userprofile-picture:not(.userprofile-picture-wrap .userprofile-picture) {
-    width: 108px;
-    height: 108px;
+    width: 96px;
+    height: 96px;
     border: 3px solid var(--surface);
     box-shadow: 0 0 0 3px var(--accent-500), var(--shadow-sm);
 }
@@ -143,13 +128,12 @@
     letter-spacing: .08em;
     text-transform: uppercase;
     color: var(--accent-600);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .userprofile-details h1 {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 27px;
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 700;
     color: var(--navy-950);
     margin-bottom: 4px;
     letter-spacing: -0.01em;
@@ -157,14 +141,14 @@
 }
 
 .userprofile-details h3 {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--slate-600);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-weight: 500;
 }
 
 .userprofile-details p {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--slate-500);
 }
 
@@ -173,16 +157,15 @@
     margin-right: 6px;
 }
 
-/* Optional small badge, e.g. <span class="badge-verified">Verified</span> */
 .badge-verified {
     display: inline-flex;
     align-items: center;
     gap: 4px;
     background: var(--accent-tint);
     color: var(--accent-600);
-    font-size: 11.5px;
+    font-size: 11px;
     font-weight: 600;
-    padding: 3px 9px;
+    padding: 2px 8px;
     border-radius: 999px;
     margin-left: 8px;
     vertical-align: middle;
@@ -200,12 +183,12 @@
 
 .userconnect-btn,
 .usermessage-btn {
-    padding: 10px 20px;
+    padding: 8px 16px;
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
     font-family: inherit;
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: .01em;
     transition: background-color .18s var(--ease), border-color .18s var(--ease),
@@ -219,7 +202,7 @@
 }
 
 .userconnect-btn:hover {
-    background: var(--navy-950);
+    background: var(--navy-900);
     box-shadow: var(--shadow-md);
     transform: translateY(-1px);
 }
@@ -230,13 +213,14 @@
 
 .usermessage-btn {
     background: var(--surface);
-    color: var(--navy-800);
+    color: var(--slate-600);
     border: 1px solid var(--border);
 }
 
 .usermessage-btn:hover {
     background: var(--bg);
     border-color: var(--slate-400);
+    color: var(--navy-950);
 }
 
 .userconnect-btn:focus-visible,
@@ -253,21 +237,21 @@
 .userprofile-section {
     width: 88%;
     max-width: 1100px;
-    margin: 20px auto;
+    margin: 16px auto;
     background: var(--surface);
     border-radius: var(--radius-lg);
-    padding: 28px 32px;
+    padding: 24px 28px;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-light);
 }
 
 .userprofile-section h2 {
-    font-size: 16.5px;
+    font-size: 15px;
     font-weight: 600;
     color: var(--navy-950);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     letter-spacing: -0.01em;
-    padding-bottom: 12px;
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--border-light);
     position: relative;
 }
@@ -276,17 +260,17 @@
     content: "";
     display: inline-block;
     width: 3px;
-    height: 14px;
+    height: 12px;
     background: var(--accent-500);
-    margin-right: 9px;
+    margin-right: 8px;
     border-radius: 2px;
     vertical-align: -1px;
 }
 
 .userprofile-section p {
     color: var(--slate-600);
-    line-height: 1.75;
-    font-size: 14.5px;
+    line-height: 1.6;
+    font-size: 13.5px;
 }
 
 /* ===========================
@@ -296,15 +280,15 @@
 .userskills-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
 }
 
 .userskills-wrapper span {
     background: var(--bg);
-    color: var(--navy-800);
-    padding: 7px 14px;
+    color: var(--slate-600);
+    padding: 5px 12px;
     border-radius: var(--radius-sm);
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 500;
     border: 1px solid var(--border);
     cursor: default;
@@ -313,10 +297,10 @@
 }
 
 .userskills-wrapper span:hover {
-    background: var(--navy-900);
+    background: var(--navy-800);
     color: #fff;
-    border-color: var(--navy-900);
-    transform: translateY(-2px);
+    border-color: var(--navy-800);
+    transform: translateY(-1px);
 }
 
 /* ===========================
@@ -326,14 +310,14 @@
 .userstats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 14px;
 }
 
 .userstat-box {
     background: var(--navy-950);
     color: #fff;
     border-radius: var(--radius-md);
-    padding: 22px 20px;
+    padding: 18px 16px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -351,7 +335,7 @@
 }
 
 .userstat-box:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     background: var(--navy-800);
 }
 
@@ -360,46 +344,26 @@
 }
 
 .userstat-box h1 {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 28px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 700;
     color: #fff;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     letter-spacing: -0.01em;
 }
 
 .userstat-box p {
     color: var(--slate-400);
-    font-size: 12.5px;
+    font-size: 11.5px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
-/* ===========================
-   Motion preference
-=========================== */
-
-@media (prefers-reduced-motion: reduce) {
-    .connect-btn,
-    .message-btn,
-    .skills-wrapper span,
-    .stat-box,
-    .stat-box::after {
-        transition: none;
-    }
-}
-
-/* ===========================
-   Responsive
-=========================== */
-
 @media (max-width: 768px) {
-
     .userprofile-header {
         flex-direction: column;
         text-align: center;
-        margin-top: -48px;
-        padding: 24px;
+        margin-top: -40px;
+        padding: 20px;
     }
 
     .userprofile-buttons {
@@ -413,11 +377,11 @@
     }
 
     .userprofile-picture-wrap {
-        width: 96px;
-        height: 96px;
+        width: 88px;
+        height: 88px;
     }
 
     .userprofile-cover {
-        height: 160px;
+        height: 140px;
     }
-}
+}

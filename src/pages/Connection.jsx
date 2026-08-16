@@ -46,7 +46,7 @@ const Connections = () => {
         }
     };
     const filtered = connections.filter(user =>
-        user.Name.toLowerCase().includes(search.toLowerCase())
+        (user.Name || "").toLowerCase().includes(search.toLowerCase())
     );
 
     return (

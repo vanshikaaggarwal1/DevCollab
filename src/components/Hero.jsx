@@ -255,7 +255,7 @@ const MemberHero = ({ user, navigate, showToast, developers }) => {
                                     <span className="mini-stat-label">Messages</span>
                                 </div>
                                 <div className="mini-stat">
-                                    <i class="fa-solid fa-bell"></i>
+                                    <i className="fa-solid fa-bell"></i>
                                     <span className="mini-stat-num">{stats.notifications}</span>
                                     <span className="mini-stat-label">Notifications</span>
                                 </div>
@@ -476,7 +476,7 @@ const SharedSections = ({ showToast, developers }) => {
 
         try {
             await axios.put(
-                `http://localhost:5000/api/project/join/${project._id}`,
+                `http://localhost:5000/api/projects/join/${project._id}`,
                 {
                     userId: user._id,
                 }
@@ -497,7 +497,7 @@ const SharedSections = ({ showToast, developers }) => {
         <>
             {/* ── FEATURES ── */}
             <section id="features">
-                <div className="features-heading">
+                <div className="feature-heading">
                     <div className="section-badge">Why DevCollab?</div>
                     <h2>Everything You Need to <span>Collaborate</span></h2>
                     <p>A complete ecosystem for developers to connect, build, and grow their careers through real projects.</p>
@@ -663,7 +663,7 @@ const SharedSections = ({ showToast, developers }) => {
                         className='show-more-developers'
                         onClick={() => setShowDeveloperPanel(true)}
                     >
-                        Show More <i class="fa-solid fa-arrow-right"></i>
+                        Show More <i className="fa-solid fa-arrow-right"></i>
                     </button>
                 </div>
             </section>

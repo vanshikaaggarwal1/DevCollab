@@ -8,15 +8,13 @@ const ProjectCard = ({
     onOpenWorkspace
 }) => {
 
-    const isOwner = project.owner === currentUser._id;
-
-    const isMember = project.members?.includes(currentUser._id);
-
-    const requestSent = project.pendingRequests?.includes(currentUser._id);
+    const ownerId = typeof project.owner === 'object' ? project.owner?._id : project.owner;
+    const isOwner = ownerId === currentUser?._id;
+    const isMember = project.members?.includes(currentUser?._id);
+    const requestSent = project.pendingRequests?.includes(currentUser?._id);
 
     return (
         <div className="project-card">
-
             <div className="project-icon">
                 <i className="fa-solid fa-code"></i>
             </div>
@@ -26,31 +24,25 @@ const ProjectCard = ({
             <p>{project.description}</p>
 
             <div className="tech-stack">
-
-                {project.techStack.map((tech, index) => (
-
+                {project.techStack?.map((tech, index) => (
                     <span key={index}>
                         {tech}
                     </span>
-
                 ))}
-
             </div>
 
             <div className="project-details">
-
                 <p>
-                    <strong>Category:</strong> {project.category}
+                    <strong>Category:</strong> {project.category || "General"}
                 </p>
 
                 <p>
-                    <strong>Difficulty:</strong> {project.difficulty}
+                    <strong>Difficulty:</strong> {project.difficulty || "Medium"}
                 </p>
 
                 <p>
-                    <strong>Members:</strong> {project.members.length} / {project.teamSize}
+                    <strong>Members:</strong> {project.members?.length || 0} / {project.teamSize || 1}
                 </p>
-
             </div>
 
             <div className="project-footer">

@@ -3,9 +3,10 @@ const mongoose = require("mongoose");
 const connectDB = async () => {
 
     try {
-        await mongoose.connect("mongodb://127.0.0.1:27017/DeveloperDB");
+        const connUri = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/DeveloperDB";
+        await mongoose.connect(connUri);
 
-        console.log("Database Connected");
+        console.log(`Database Connected: ${connUri}`);
 
     }
     catch (err) {

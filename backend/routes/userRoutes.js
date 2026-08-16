@@ -11,10 +11,11 @@ const {
 } = require("../controllers/userController");
 
 
+const upload = require("../middleware/multer");
+
 router.get("/all", getAllUsers);
 router.get("/:id", getUser);
 
-const upload = require("../middleware/multer");
 router.put(
     "/update/:id",
     upload.fields([

@@ -1,184 +1,157 @@
 /* ==========================
-   Collaboration Hub
+   Collaboration Hub (DevCollab Social Style)
 ========================== */
 
 .collaboration-container {
     flex: 1;
-    padding: 35px;
-    background: #F8FAFC;
+    padding: 24px 32px;
+    background: var(--bg-default, #F5F4F0);
     min-height: 100vh;
+    max-width: 1400px;
 }
 
 /* Header */
-
 .collaboration-header {
     display: flex;
-    
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 35px;
+    margin-bottom: 24px;
 }
-.collaboration-header .collab{
+
+.collaboration-header .collab {
     display: flex;
     flex-direction: column;
 }
 
 .collaboration-header h1 {
-    font-size: 34px;
-    color: #1F2937;
-    margin-bottom: 8px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary, #18181B);
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
 }
 
 .collaboration-header p {
-    color: #6B7280;
+    color: var(--text-secondary, #52525B);
+    font-size: 13px;
+    margin: 0;
 }
 
 .createproject-btn {
     border: none;
-    background: #182667;
-    color: white;
-    /* width: 100px; */
-    padding: 14px 22px;
-    border-radius: 12px;
+    background: var(--color-copper, #C86D51);
+    color: #FFFFFF;
+    padding: 8px 16px;
+    height: 38px;
+    border-radius: var(--radius-md, 8px);
     cursor: pointer;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-size: 15px;
+    gap: 8px;
+    font-size: 13px;
     font-weight: 600;
-    /* flex: 1; */
-    transition: .3s;
+    transition: background 150ms ease, transform 150ms ease;
 }
 
-.create-project-btn:hover {
-    background: #2439a1;
+.createproject-btn:hover {
+    background: var(--color-copper-hover, #B55C41);
+    transform: translateY(-1px);
 }
 
 /* Tabs */
-
 .collaboration-tabs {
     display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
 .collaboration-tabs button {
-    border: 1px solid #E5E7EB;
-    background: white;
-    color: #6B7280;
-    padding: 12px 24px;
-    border-radius: 10px;
+    border: 1px solid var(--border-default, #E2E0D8);
+    background: #FFFFFF;
+    color: var(--text-secondary, #52525B);
+    padding: 7px 16px;
+    border-radius: var(--radius-md, 8px);
+    font-size: 13px;
+    font-weight: 600;
     cursor: pointer;
-    transition: .3s;
+    transition: all 150ms ease;
 }
 
 .collaboration-tabs button:hover {
-    color: #182667;
+    color: var(--text-primary, #18181B);
+    background: var(--bg-inset, #FAF9F6);
 }
 
 .active-tab {
-    background: #182667 !important;
-    color: white !important;
-    border-color: #182667 !important;
+    background: var(--color-forest, #2D4A3E) !important;
+    color: #FFFFFF !important;
+    border-color: var(--color-forest, #2D4A3E) !important;
 }
 
 /* Search */
-
 .collaboration-search {
     display: flex;
-    gap: 18px;
-    margin-bottom: 35px;
+    gap: 12px;
+    margin-bottom: 24px;
 }
 
 .collaboration-search input {
     flex: 1;
-    border: 1px solid #E5E7EB;
-    background: white;
-    border-radius: 12px;
-    padding: 15px;
-    font-size: 15px;
+    border: 1px solid var(--border-default, #E2E0D8);
+    background: #FFFFFF;
+    border-radius: var(--radius-md, 8px);
+    padding: 8px 14px;
+    height: 38px;
+    font-size: 13px;
     outline: none;
+    color: var(--text-primary, #18181B);
+    transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 
 .collaboration-search input:focus {
-    border-color: #182667;
+    border-color: var(--color-forest, #2D4A3E);
+    box-shadow: var(--shadow-glow);
 }
 
 .collaboration-search select {
-    width: 220px;
-    border: 1px solid #E5E7EB;
-    border-radius: 12px;
-    padding: 15px;
-    background: white;
+    width: 200px;
+    height: 38px;
+    border: 1px solid var(--border-default, #E2E0D8);
+    border-radius: var(--radius-md, 8px);
+    padding: 8px 12px;
+    background: #FFFFFF;
     outline: none;
+    font-size: 13px;
+    color: var(--text-primary, #18181B);
 }
 
 /* Project Grid */
-
 .collaboration-container .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
-}
-
-/* Pagination */
-
-.pagination {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 40px 0;
-}
-
-.pagination button {
-    width: 42px;
-    height: 42px;
-    border: 1px solid #E5E7EB;
-    background: white;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.pagination button:hover {
-    background: #182667;
-    color: white;
-}
-
-.active-page {
-    background: #182667 !important;
-    color: white;
-    border-color: #182667 !important;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 /* Responsive */
-
-@media (max-width:900px) {
-
+@media (max-width: 900px) {
     .collaboration-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
+        gap: 16px;
     }
-
     .collaboration-search {
         flex-direction: column;
     }
-
     .collaboration-search select {
         width: 100%;
     }
-
 }
 
-@media (max-width:600px) {
-
+@media (max-width: 600px) {
     .collaboration-container {
-        padding: 20px;
+        padding: 16px;
     }
-
-    .project-grid {
+    .collaboration-container .project-grid {
         grid-template-columns: 1fr;
     }
-
 }

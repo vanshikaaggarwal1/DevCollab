@@ -96,7 +96,7 @@ const DashboardNav = () => {
             gap: "inherit",
             width: "100%"
           }}>
-            <i class="fa-solid fa-handshake"></i>
+            <i className="fa-solid fa-handshake"></i>
             <span> {!collapsed && <span>Collaboration</span>}</span></NavLink>
           </li>
           {/* <li>

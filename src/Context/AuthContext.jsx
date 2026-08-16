@@ -9,9 +9,9 @@ export const AuthProvider = ({ children }) => {
     // Load user from localStorage on mount
     useEffect(() => {
         try {
-            const stored = localStorage.getItem('user');
-            if (stored) {
-                setUser(JSON.parse(stored));
+            const storedUser = localStorage.getItem('user');
+            if (storedUser) {
+                setUser(JSON.parse(storedUser));
             }
         } catch {
             localStorage.removeItem('user');
@@ -30,11 +30,17 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem('user');
     };
 
+    const updateUser = (updatedUserData) => {
+        setUser(updatedUserData);
+        localStorage.setItem('user', JSON.stringify(updatedUserData));
+    };
+
     return (
         <AuthContext.Provider
             value={{
                 user,
                 setUser,
+                updateUser,
                 login,
                 logout,
                 loading

@@ -9,7 +9,7 @@ const getNotifications = async (req, res) => {
         const notifications = await Notification.find({
             receiver: userId
         })
-            .populate("sender", "Name profileImage")
+            .populate("sender", "Name Image Role")
             .sort({ createdAt: -1 });
 
         res.send({
@@ -143,7 +143,8 @@ const acceptApplication = async (req, res) => {
             project: project._id,
             type: "application_accepted",
             title: "Application Accepted",
-            message: `Your request to join ${project.title} was accepted.`
+            message: `Your request to join "${project.title}" was accepted.`,
+            link: `/workspace/${project._id}`
         });
 
         await Notification.findByIdAndDelete(notification._id);

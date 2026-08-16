@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../CSS/CreateProject.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import DashboardNav from "./DashboardNav";
 
 const CreateProject = () => {
     const navigate = useNavigate();
@@ -90,8 +91,10 @@ const CreateProject = () => {
     };
 
     return (
-        <div className="create-project-page">
-            <div className="project-form-card">
+        <div className="dashboard-layout">
+            <DashboardNav />
+            <div className="create-project-page">
+                <div className="project-form-card">
 
                 <h1>Create New Project</h1>
 
@@ -285,6 +288,7 @@ const CreateProject = () => {
                 </div>
             </div>
         </div>
+    </div>
     );
 };
 

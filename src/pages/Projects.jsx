@@ -1,32 +1,28 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../CSS/Project.css";
 import DashboardNav from "./DashboardNav";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Logincontext } from "./context";
+import { useAuth } from "../Context/AuthContext";
 
 const Projects = () => {
   const [search, setSearch] = useState("");
   const [projects, setProjects] = useState([]);
-  const [userid, setuserid] = useContext(Logincontext)
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
-
-    let id = JSON.parse(localStorage.getItem("user"))
-    if (id) {
-      setuserid(id._id)
-      getProjects();
+    if (user?._id) {
+      getProjects(user._id);
     }
+  }, [user?._id]);
 
-
-  }, [userid]);
-
-  const getProjects = async () => {
-    console.log(userid)
-
+  const getProjects = async (userId) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/projects/${userid}`);
-      setProjects(res.data.projects);
+      const res = await axios.get(`http://localhost:5000/api/projects/${userId}`);
+      if (res.data.projects) {
+        setProjects(res.data.projects);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -41,10 +37,9 @@ const Projects = () => {
       <DashboardNav />
 
       <div className="projects-page">
-
         <div className="projects-header">
           <div>
-            <h1>Projects</h1>
+            <h1>My Projects</h1>
             <p>Manage and track all your collaborative projects.</p>
           </div>
 
@@ -63,18 +58,14 @@ const Projects = () => {
 
           <div className="stat-card">
             <h2>
-              {
-                projects.filter((p) => p.status === "Active").length
-              }
+              {projects.filter((p) => p.status === "Active").length}
             </h2>
             <span>Active</span>
           </div>
 
           <div className="stat-card">
             <h2>
-              {
-                projects.filter((p) => p.status === "Completed").length
-              }
+              {projects.filter((p) => p.status === "Completed").length}
             </h2>
             <span>Completed</span>
           </div>
@@ -82,11 +73,11 @@ const Projects = () => {
           <div className="stat-card">
             <h2>
               {projects.reduce(
-                (total, p) => total + (p.teamsize?.length || 0),
+                (total, p) => total + (p.members?.length || 1),
                 0
               )}
             </h2>
-            <span>Team Size</span>
+            <span>Total Collaborators</span>
           </div>
         </div>
 
@@ -102,12 +93,11 @@ const Projects = () => {
         <div className="projects-grid">
           {filteredProjects.map((project) => (
             <div className="project-card" key={project._id}>
-
               <div className="project-top">
                 <h3>{project.title}</h3>
 
-                <span className={`status ${project.status.replace(" ", "-")}`}>
-                  {project.status}
+                <span className={`status ${(project.status || "Planning").toLowerCase().replace(" ", "-")}`}>
+                  {project.status || "Planning"}
                 </span>
               </div>
 
@@ -115,7 +105,7 @@ const Projects = () => {
 
               <div className="project-footer">
                 <div>
-                  <small>👥 {project.members?.length || 0} Team size</small>
+                  <small>👥 {project.members?.length || 1} Members</small>
                 </div>
 
                 <div>
@@ -128,14 +118,12 @@ const Projects = () => {
                 </div>
               </div>
 
-              <button className="view-btn">
-                View Project
+              <button className="view-btn" onClick={() => navigate(`/workspace/${project._id}`)}>
+                Open Workspace
               </button>
-
             </div>
           ))}
         </div>
-
       </div>
     </div>
   );

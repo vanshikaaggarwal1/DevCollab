@@ -136,7 +136,7 @@ const Navbar = () => {
                 {user ? (
                     <>
                         <Link to="/dashboard" className="nav-mobile-link">Dashboard</Link>
-                        <Link to="/profile" className="nav-mobile-link">Edit Profile</Link>
+                        <Link to="/editprofile" className="nav-mobile-link">Edit Profile</Link>
                         <button className="nav-mobile-logout" onClick={handleLogout}>
                             Logout
                         </button>

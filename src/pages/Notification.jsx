@@ -181,17 +181,17 @@ const Notification = () => {
 
                             <div className="notification-icon">
 
-                                {item.type === "connection_request" && <i class="fa-solid fa-handshake"></i>}
+                                {item.type === "connection_request" && <i className="fa-solid fa-handshake"></i>}
 
-                                {item.type === "connection_accepted" && <i class="fa-solid fa-check"></i>}
+                                {item.type === "connection_accepted" && <i className="fa-solid fa-check"></i>}
 
-                                {item.type === "project_application" && <i class="fa-solid fa-folder"></i>}
+                                {item.type === "project_application" && <i className="fa-solid fa-folder"></i>}
 
-                                {item.type === "application_accepted" && <i class="fa-solid fa-award"></i>}
+                                {item.type === "application_accepted" && <i className="fa-solid fa-award"></i>}
 
-                                {item.type === "application_rejected" && <i class="fa-solid fa-xmark"></i>}
+                                {item.type === "application_rejected" && <i className="fa-solid fa-xmark"></i>}
 
-                                {item.type === "message" && <i class="fa-solid fa-comment"></i>}
+                                {item.type === "message" && <i className="fa-solid fa-comment"></i>}
 
                             </div>
 

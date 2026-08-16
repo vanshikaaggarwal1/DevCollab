@@ -140,11 +140,9 @@ const ProfilePreview = ({ user, onClose }) => {
                     </p>
 
                     <div className="preview-skills">
-
-                        {user.Skills.map((skill, index) => (
+                        {user.Skills?.map((skill, index) => (
                             <span key={index}>{skill}</span>
                         ))}
-
                     </div>
 
                     <div className="preview-actions">

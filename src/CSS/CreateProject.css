@@ -1,70 +1,51 @@
-/* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background: #f5f7fb;
-}
-
 /* ===========================
-   Create Project Page
+   Create Project Page (DevCollab Social Style)
 =========================== */
 
 .create-project-page {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-    background:
-        radial-gradient(circle at top left, #18266720, transparent 45%),
-        radial-gradient(circle at bottom right, #7D8EAC30, transparent 45%),
-        #f5f7fb;
+    align-items: flex-start;
+    padding: 24px 32px;
+    background: var(--bg-default, #F5F4F0);
+    flex: 1;
+    max-width: 1400px;
 }
-
-/* ===========================
-   Card
-=========================== */
 
 .project-form-card {
     width: 100%;
-    max-width: 900px;
-    background: #fff;
-    padding: 45px;
-    border-radius: 24px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, .08);
+    max-width: 760px;
+    background: #FFFFFF;
+    padding: 32px 40px;
+    border-radius: var(--radius-lg, 12px);
+    border: 1px solid var(--border-default, #E2E0D8);
+    box-shadow: var(--shadow-md);
 }
 
 .project-form-card h1 {
-    color: #000C14;
-    font-size: 2rem;
-    margin-bottom: 10px;
+    color: var(--text-primary, #18181B);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
 }
 
 .project-form-card p {
-    color: #6b7280;
-    margin-bottom: 35px;
+    color: var(--text-secondary, #52525B);
+    font-size: 13px;
+    margin-bottom: 24px;
 }
-
-/* ===========================
-   Form
-=========================== */
 
 .project-form {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 16px;
 }
 
 .form-row {
     display: flex;
-    gap: 20px;
+    gap: 16px;
 }
 
 .form-row .form-group {
@@ -77,104 +58,67 @@ body {
 }
 
 .form-group label {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-weight: 600;
-    color: #1F3847;
+    font-size: 12.5px;
+    color: var(--text-secondary, #52525B);
 }
 
 .form-group input,
-.form-group textarea,
 .form-group select {
-
     width: 100%;
-    padding: 14px 16px;
-    border: 1px solid #d7dbe3;
-    border-radius: 12px;
+    height: 38px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-default, #E2E0D8);
+    border-radius: var(--radius-md, 8px);
     outline: none;
-    font-size: .95rem;
-    transition: .3s;
-    background: white;
-
+    font-size: 13px;
+    color: var(--text-primary, #18181B);
+    background: #FFFFFF;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 
 .form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-default, #E2E0D8);
+    border-radius: var(--radius-md, 8px);
+    outline: none;
+    font-size: 13px;
+    color: var(--text-primary, #18181B);
+    background: #FFFFFF;
     resize: vertical;
-    min-height: 130px;
+    min-height: 100px;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-
-    border-color: #182667;
-    box-shadow: 0 0 0 4px rgba(24, 38, 103, .12);
-
+    border-color: var(--color-forest, #2D4A3E);
+    box-shadow: var(--shadow-glow);
 }
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-
-    color: #9ca3af;
-
-}
-
-/* ===========================
-   Button
-=========================== */
 
 .create-project-btn {
-
-    margin-top: 10px;
+    margin-top: 8px;
     width: 100%;
+    height: 40px;
     border: none;
-    padding: 16px;
-    border-radius: 14px;
+    border-radius: var(--radius-md, 8px);
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 13px;
     font-weight: 600;
-
-    color: #FFE9C2;
-
-    background: linear-gradient(135deg,
-            #182667,
-            #1F3847);
-
-    transition: .3s;
-
+    color: #FFFFFF;
+    background: var(--color-copper, #C86D51);
+    transition: background 150ms ease, transform 150ms ease;
 }
 
 .create-project-btn:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow: 0 15px 30px rgba(24, 38, 103, .25);
-
+    background: var(--color-copper-hover, #B55C41);
+    transform: translateY(-1px);
 }
 
-/* ===========================
-   Select Styling
-=========================== */
-
-select {
-    cursor: pointer;
-}
-
-/* ===========================
-   Responsive
-=========================== */
-
-@media(max-width:768px) {
-
-    .project-form-card {
-
-        padding: 30px 22px;
-
-    }
-
-    .form-row {
-
-        flex-direction: column;
-
-    }
-
+@media (max-width: 768px) {
+    .project-form-card { padding: 24px 20px; }
+    .form-row { flex-direction: column; }
 }

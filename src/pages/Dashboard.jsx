@@ -238,7 +238,7 @@ const Dashboard = () => {
                                                     {project.techStack?.join(", ")}
                                                 </span>
                                             </div>
-                                            <button className="work-space-btn" onClick={() => navigate("/workspace")}>Open Workspace</button>
+                                            <button className="work-space-btn" onClick={() => navigate(`/workspace/${project._id}`)}>Open Workspace</button>
                                         </div>
                                     ))
                             }
@@ -283,7 +283,7 @@ const Dashboard = () => {
                                         ) : requestReceived(dev) ? (
                                             <button
                                                 className="btn-connect-sm"
-                                                onClick={() => navigate("/notifications")}
+                                                onClick={() => navigate("/notification")}
                                             >
                                                 Accept Request
                                             </button>
@@ -362,7 +362,7 @@ const Dashboard = () => {
                                     ) : requestReceived(dev) ? (
                                         <button
                                             className="btn-connect-sm"
-                                            onClick={() => navigate("/notifications")}
+                                            onClick={() => navigate("/notification")}
                                         >
                                             Accept Request
                                         </button>

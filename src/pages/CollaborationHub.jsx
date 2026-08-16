@@ -63,12 +63,12 @@ const CollaborationHub = () => {
     const displayedProjects =
         activeTab === "explore"
             ? filteredProjects.filter(
-                (project) => project.owner._id !== currentUser._id
+                (project) => project.owner?._id !== currentUser?._id
             )
             : filteredProjects.filter(
                 (project) =>
-                    project.owner._id === currentUser._id ||
-                    project.members?.includes(currentUser._id)
+                    project.owner?._id === currentUser?._id ||
+                    project.members?.includes(currentUser?._id)
             );
 
     return (
@@ -170,7 +170,7 @@ const CollaborationHub = () => {
                                     setShowJoinModal(true);
                                 }}
                                 onOpenWorkspace={(project) => {
-                                    navigate("/workspace");
+                                    navigate(`/workspace/${project._id}`);
                                 }}
                             />
 

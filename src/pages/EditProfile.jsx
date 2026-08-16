@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import "../CSS/Profile.css";
 import DashboardNav from "./DashboardNav";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Context/AuthContext";
 
 const EditProfile = () => {
     const navigate = useNavigate();
+    const { updateUser } = useAuth();
     const user = JSON.parse(localStorage.getItem("user"));
     const [profile, setProfile] = useState({
 
@@ -35,8 +37,10 @@ const EditProfile = () => {
     };
     const getProfile = async () => {
         try {
+            const userObj = JSON.parse(localStorage.getItem("user"));
+            if (!userObj?._id) return;
             const response = await fetch(
-                `http://localhost:5000/api/user/${user._id}`
+                `http://localhost:5000/api/user/${userObj._id}`
             );
 
             const data = await response.json();
@@ -89,8 +93,11 @@ const EditProfile = () => {
             formData.append("coverImage", coverImage);
         }
 
+        const userObj = JSON.parse(localStorage.getItem("user"));
+        if (!userObj?._id) return alert("Please log in first.");
+
         const response = await fetch(
-            `http://localhost:5000/api/user/update/${user._id}`,
+            `http://localhost:5000/api/user/update/${userObj._id}`,
             {
                 method: "PUT",
                 body: formData
@@ -100,6 +107,9 @@ const EditProfile = () => {
         const data = await response.json();
 
         if (data.statuscode === 1) {
+            if (data.user) {
+                updateUser(data.user);
+            }
             navigate("/personalprofile");
         } else {
             alert(data.message);
