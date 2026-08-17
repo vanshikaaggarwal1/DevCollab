@@ -53,7 +53,7 @@ const DashboardNav = () => {
             <span> {!collapsed && <span>Dashboard</span>}</span></NavLink>
           </li>
 
-          <li ><NavLink to="/editprofile" style={{
+          <li ><NavLink to="/personalprofile" style={{
             color: "inherit",
             textDecoration: "none",
             display: "flex",

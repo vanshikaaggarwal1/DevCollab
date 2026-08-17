@@ -52,11 +52,11 @@
 }
 
 .hero-left h1 {
-    font-size: 36px;
+    font-size: 45px;
     line-height: 1.18;
     color: var(--text-primary, #18181B);
     margin-bottom: 16px;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: -0.02em;
 }
 
